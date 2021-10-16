@@ -2,8 +2,7 @@ module "my_kms_key" {
   source = "../"
 
   alias       = "my-kms-key"
-  description = "my kms key for that thing I have to encrypt"
-  iam_enabled = false
+  description = "A kms key for that thing I have to encrypt"
 
   key_admins = [
     "arn:aws:iam::111122223333:user/my-admin-user",
