@@ -12,3 +12,9 @@ resource "aws_kms_key" "key" {
     key_users_enabled  = length(var.key_users) > 0
   })
 }
+
+resource "aws_kms_alias" "alias" {
+  name          = var.alias_use_prefix ? null : "alias/${var.alias}"
+  name_prefix   = var.alias_use_prefix ? "alias/${var.alias}" : null
+  target_key_id = aws_kms_key.key.arn
+}

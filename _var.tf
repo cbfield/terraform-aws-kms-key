@@ -1,3 +1,14 @@
+variable "alias" {
+  description = "An alias to assign to the key"
+  type        = string
+}
+
+variable "alias_use_prefix" {
+  description = "If true, the provided alias will be used as a prefix, with random characters appended in the actual alias"
+  type        = bool
+  default     = false
+}
+
 variable "customer_master_key_spec" {
   description = <<-EOF
   A spec to use for the key (https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html)
