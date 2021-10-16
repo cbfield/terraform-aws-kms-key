@@ -1,3 +1,13 @@
+output "alias" {
+  description = "The alias of the kms key"
+  value       = aws_kms_alias.alias
+}
+
+output "alias_use_prefix" {
+  description = "The provided value for var.alias_use_prefix"
+  value       = var.alias_use_prefix
+}
+
 output "customer_master_key_spec" {
   description = "The provided value for var.customer_master_key_spec"
   value       = var.customer_master_key_spec
