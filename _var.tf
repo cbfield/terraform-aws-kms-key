@@ -19,14 +19,32 @@ variable "customer_master_key_spec" {
   default     = "SYMMETRIC_DEFAULT"
 }
 
+variable "deletion_window_in_days" {
+  description = "The duration of the period in which the key will be scheduled for deletion before actually being deleted"
+  type        = number
+  default     = 30
+}
+
 variable "description" {
   description = "A description assigned to the key"
   type        = string
   default     = null
 }
 
+variable "enable_key_rotation" {
+  description = "Whether or not to enable automatic key rotation"
+  type        = bool
+  default     = false
+}
+
 variable "iam_enabled" {
   description = "Whether or not to allow key users to be defined by IAM privileges, rather than just the key policy"
+  type        = bool
+  default     = true
+}
+
+variable "is_enabled" {
+  description = "Whether or not the key is enabled for use"
   type        = bool
   default     = true
 }
@@ -47,4 +65,10 @@ variable "key_users" {
   description = "ARNs of principals to assign as users of the key"
   type        = list(string)
   default     = []
+}
+
+variable "tags" {
+  description = "Tags to assign to the key"
+  type        = map(string)
+  default     = {}
 }
